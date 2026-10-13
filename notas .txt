@@ -1,0 +1,2 @@
+PL2.2
+Ej 3.5: corre el -d --rm --nwtwork pruebas... y el nginx_volum2
