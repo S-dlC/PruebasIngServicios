@@ -1,2 +1,14 @@
 PL2.2
 Ej 3.5: corre el -d --rm --nwtwork pruebas... y el nginx_volum2
+
+2.2 Aplicación
+3.1.2
+driver://usuario:contraseña@nodo/database
+mysql+pymysql://amigosuser:amigospass@172.18.0.2/amigosdb
+
+---------
+Para asignar ips libres si da problemas
+sudo ip addr add 192.168.207.x/24 dev enp0s3
+sudo ip route add default via 192.168.207.14 dev enp0s3
+(sudo ip link set enps03 up)
+--------
