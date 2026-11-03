@@ -1,0 +1,126 @@
+EJERCICIO 1
+"Compara ahora el resultado de en.wikipedia.org (versión inglesa) con es.wikipedia.org (versión española) ¿qué conclusión obtienes? ¿Qué saldrá si, desde el navegador web, accedes a wikipedia directamente por la IP?"
+nslookup www.uniovi.es
+Server:         127.0.0.53
+Address:        127.0.0.53#53
+
+Non-authoritative answer:
+www.uniovi.es   canonical name = crisb101.sic233.uniovi.es.
+Name:   crisb101.sic233.uniovi.es
+Address: 156.35.233.101
+
+nslookup en.wikipedia.org
+Server:         127.0.0.53
+Address:        127.0.0.53#53
+
+Non-authoritative answer:
+en.wikipedia.org        canonical name = dyna.wikimedia.org.
+Name:   dyna.wikimedia.org
+Address: 185.15.58.224
+Name:   dyna.wikimedia.org
+Address: 2a02:ec80:600:ed1a::1
+
+host www.uniovi.es
+www.uniovi.es is an alias for crisb101.sic233.uniovi.es.
+crisb101.sic233.uniovi.es has address 156.35.233.101
+
+host en.wikipedia.org
+en.wikipedia.org is an alias for dyna.wikimedia.org.
+dyna.wikimedia.org has address 185.15.58.224
+dyna.wikimedia.org has IPv6 address 2a02:ec80:600:ed1a::1
+
+
+dig  www.uniovi.es
+
+; <<>> DiG 9.18.39-0ubuntu0.24.04.8-Ubuntu <<>> www.uniovi.es
+;; global options: +cmd
+;; Got answer:
+;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 12011
+;; flags: qr rd ra; QUERY: 1, ANSWER: 2, AUTHORITY: 0, ADDITIONAL: 1
+
+;; OPT PSEUDOSECTION:
+; EDNS: version: 0, flags:; udp: 65494
+;; QUESTION SECTION:
+;www.uniovi.es.                 IN      A
+
+;; ANSWER SECTION:
+www.uniovi.es.          1214    IN      CNAME   crisb101.sic233.uniovi.es.
+crisb101.sic233.uniovi.es. 265  IN      A       156.35.233.101
+
+;; Query time: 2 msec
+;; SERVER: 127.0.0.53#53(127.0.0.53) (UDP)
+;; WHEN: Tue Nov 03 17:45:45 UTC 2026
+;; MSG SIZE  rcvd: 88
+
+dig en.wikipedia.org
+
+; <<>> DiG 9.18.39-0ubuntu0.24.04.8-Ubuntu <<>> en.wikipedia.org
+;; global options: +cmd
+;; Got answer:
+;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 20326
+;; flags: qr rd ra; QUERY: 1, ANSWER: 2, AUTHORITY: 0, ADDITIONAL: 1
+
+;; OPT PSEUDOSECTION:
+; EDNS: version: 0, flags:; udp: 65494
+;; QUESTION SECTION:
+;en.wikipedia.org.              IN      A
+
+;; ANSWER SECTION:
+en.wikipedia.org.       62      IN      CNAME   dyna.wikimedia.org.
+dyna.wikimedia.org.     175     IN      A       185.15.58.224
+
+;; Query time: 3 msec
+;; SERVER: 127.0.0.53#53(127.0.0.53) (UDP)
+;; WHEN: Tue Nov 03 17:46:44 UTC 2026
+;; MSG SIZE  rcvd: 90
+
+
+
+Host es la más concisa y dig la que más información ofrece. 
+
+
+
+
+"Compara ahora el resultado de en.wikipedia.org (versión inglesa) con es.wikipedia.org (versión española) ¿qué conclusión obtienes? ¿Qué saldrá si, desde el navegador web, accedes a wikipedia directamente por la IP?"
+nslookup es.wikipedia.org
+Server:         127.0.0.53
+Address:        127.0.0.53#53
+
+Non-authoritative answer:
+es.wikipedia.org        canonical name = dyna.wikimedia.org.
+Name:   dyna.wikimedia.org
+Address: 185.15.58.224
+Name:   dyna.wikimedia.org
+Address: 2a02:ec80:600:ed1a::1
+
+host es.wikipedia.org
+es.wikipedia.org is an alias for dyna.wikimedia.org.
+dyna.wikimedia.org has address 185.15.58.224
+dyna.wikimedia.org has IPv6 address 2a02:ec80:600:ed1a::1
+
+dig es.wikipedia.org
+
+; <<>> DiG 9.18.39-0ubuntu0.24.04.8-Ubuntu <<>> es.wikipedia.org
+;; global options: +cmd
+;; Got answer:
+;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 18379
+;; flags: qr rd ra; QUERY: 1, ANSWER: 2, AUTHORITY: 0, ADDITIONAL: 1
+
+;; OPT PSEUDOSECTION:
+; EDNS: version: 0, flags:; udp: 65494
+;; QUESTION SECTION:
+;es.wikipedia.org.              IN      A
+
+;; ANSWER SECTION:
+es.wikipedia.org.       17      IN      CNAME   dyna.wikimedia.org.
+dyna.wikimedia.org.     102     IN      A       185.15.58.224
+
+;; Query time: 3 msec
+;; SERVER: 127.0.0.53#53(127.0.0.53) (UDP)
+;; WHEN: Tue Nov 03 17:47:57 UTC 2026
+;; MSG SIZE  rcvd: 90
+
+Cambia la parte referente al enlace dinámico (?)
+
+
+EJERCICIO 3: no parece funcionar como se esperaba, requiere quitar +norecurse en algunas partes
