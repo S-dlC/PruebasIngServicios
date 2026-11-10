@@ -33,9 +33,16 @@ def create_app(config_name):
     # Pero ahora no implementamos aquí funciones ni rutas
     # eso lo hacen los blueprints. Aquí simplemente registramos
     # esos blueprints para "montarlos" en una ruta
-    from .html import html as html_blueprint
-    app.register_blueprint(html_blueprint, url_prefix='/html')
+
         
     migrate = Migrate(app, db)
     from app import models
+
+    from .html import html as html_blueprint
+    app.register_blueprint(html_blueprint, url_prefix='/html')
+
+    from .api import api as api_blueprint
+    app.register_blueprint(api_blueprint, url_prefix='/api')
+
+    return app
     return app

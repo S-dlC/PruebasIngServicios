@@ -27,8 +27,11 @@
         <td>{{amigo.name}}</td>
         <td>{{amigo.lati}}</td>
         <td>{{amigo.longi}}</td>
+        <td><a href="/html/edit_amigo/{{amigo.id}}">Modificar</a></td>
+        <td><a href="/html/delete_amigo/{{amigo.id}}">Borrar</a></td>
       </tr>
       {% endfor %}
     </table>
+    <p><a href="/html/new_amigo/">Añadir amigo</a></p>
   </body>
 </html>
