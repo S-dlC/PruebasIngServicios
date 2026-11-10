@@ -1,0 +1,8 @@
+{"title":"Amigos","uid":"amigos","schemaVersion":39,"refresh":"10s","time":{"from":"now-30m","to":"now"},"panels":[
+{"id":1,"type":"timeseries","title":"Peticiones HTTP de Amigos","datasource":{"type":"prometheus","uid":"prometheus"},"gridPos":{"x":0,"y":0,"w":12,"h":8},"targets":[{"refId":"A","expr":"amigos_http_requests_total"}]},
+{"id":2,"type":"timeseries","title":"Peticiones por segundo","datasource":{"type":"prometheus","uid":"prometheus"},"gridPos":{"x":12,"y":0,"w":12,"h":8},"targets":[{"refId":"A","expr":"rate(amigos_http_requests_total[5m])"}]},
+{"id":3,"type":"timeseries","title":"Errores HTTP por segundo","datasource":{"type":"prometheus","uid":"prometheus"},"gridPos":{"x":0,"y":8,"w":12,"h":8},"targets":[{"refId":"A","expr":"rate(amigos_http_errors_total[5m])"}]},
+{"id":4,"type":"timeseries","title":"Tiempo medio de respuesta (s)","datasource":{"type":"prometheus","uid":"prometheus"},"gridPos":{"x":12,"y":8,"w":12,"h":8},"targets":[{"refId":"A","expr":"rate(amigos_http_request_duration_seconds_sum[5m]) / rate(amigos_http_request_duration_seconds_count[5m])"}]},
+{"id":5,"type":"timeseries","title":"Memoria disponible (GB)","datasource":{"type":"prometheus","uid":"prometheus"},"gridPos":{"x":0,"y":16,"w":12,"h":8},"targets":[{"refId":"A","expr":"node_memory_MemAvailable_bytes / 1024 / 1024 / 1024"}]},
+{"id":6,"type":"timeseries","title":"Utilización CPU (%)","datasource":{"type":"prometheus","uid":"prometheus"},"gridPos":{"x":12,"y":16,"w":12,"h":8},"targets":[{"refId":"A","expr":"100 * (1 - avg(rate(node_cpu_seconds_total{mode=\"idle\"}[5m])))"}]}
+]}

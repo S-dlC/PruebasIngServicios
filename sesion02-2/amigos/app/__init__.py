@@ -44,5 +44,9 @@ def create_app(config_name):
     from .api import api as api_blueprint
     app.register_blueprint(api_blueprint, url_prefix='/api')
 
+    from .health import health as health_blueprint
+    app.register_blueprint(health_blueprint)
+    from .metrics import metrics as metrics_blueprint
+    app.register_blueprint(metrics_blueprint)
     return app
     return app
